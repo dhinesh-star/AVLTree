@@ -62,6 +62,18 @@ public class AVL {
     }
 
     Node rightRotation(Node z) {
+        /**
+                  z
+                /   \
+               y    t4                   y
+             /  \                     /    \
+            x   t3         =>        x      z
+           / \                      / \    / \
+          t1  t2                  t1  t2  t3 t4
+
+         Only node z, y, t3 are modified
+         So the function does that above modification only
+         */
         Node y = z.left;
         Node t3 = y.right;
         z.left = t3;
@@ -72,6 +84,18 @@ public class AVL {
     }
 
     Node leftRotation(Node z) {
+        /**
+                    z
+                  /   \
+                 t4    y                      y
+                      /  \                  /    \
+                     t3   x       =>       z      x
+                         /  \            /   \   /  \
+                        t2  t1          t4   t3 t1   t2
+
+         Only node z, y, t3 are modified
+         The function does that above modification only
+         */
         Node y = z.right;
         Node t3 = y.left;
         z.right = t3;
